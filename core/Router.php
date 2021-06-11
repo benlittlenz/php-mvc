@@ -23,7 +23,14 @@ class Router
   public function resolve()
   {
     $path = $this->request->getPath();
+    $method = $this->request->getMethod();
+    $callback = $this->routes[$method][$path] ?? false;
 
-    var_dump($path);
+    if(!$callback) {
+      echo "No route found";
+      exit;
+    }
+
+    echo call_user_func($callback);
   }
 }
