@@ -1,0 +1,15 @@
+{
+    "name": "ben/php-mvc",
+    "authors": [
+        {
+            "name": "benlittlenz",
+            "email": "benlittle53@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "app\\": "./"
+      }
+    },
+    "require": {}
+}
