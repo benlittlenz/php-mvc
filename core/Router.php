@@ -27,10 +27,16 @@ class Router
     $callback = $this->routes[$method][$path] ?? false;
 
     if(!$callback) {
-      echo "No route found";
-      exit;
+      return "No route found";
     }
+    if(is_string($callback)) {
+      return $this->renderView($callback);
+    }
+    return call_user_func($callback);
+  }
 
-    echo call_user_func($callback);
+  public function renderView($view)
+  {
+    include_once __DIR__."/../views/$view.php";
   }
 }
